@@ -1,4 +1,3 @@
-
 //declaring a promise
 const getIDs = new Promise((resolve, reject) => {
   setTimeout(() => {
@@ -8,21 +7,7 @@ const getIDs = new Promise((resolve, reject) => {
 });
 
 
-//Now using the promise object.then method which has a callback in case the promise is sucessfull,which in this case is always true 
-getIDs.then(ids => {
-  console.log(ids);
-  return getRecipe(ids[2]);//since we return a promise here by calling this function,it prevents callback hell
-})
-  .then(recipe => {
-    console.log(recipe);
-    return getRecipe2('Jonas');
-  })
-  .then(recipe => {
-    console.log(recipe);
-  })
-  .catch(error => {
-    console.log('Error!!');
-  })
+
 
 //Thee argument inside the then method is always the result of ther returned value of the resolve in this case
 
@@ -58,5 +43,19 @@ const getRecipe2 = (publisher) => {
 
 }
 
+
+async function getPromisesAw() {
+  const ID = await getIDs;
+  console.log(ID);
+  const recipe = await getRecipe(ID[2]);
+  console.log(recipe);
+  const recipe2 = await getRecipe2('Jonas');
+  console.log(recipe2);
+  //Now we return a resolved promise from the async function
+  return recipe;//This contains the value of the resolved promise,so we will use it
+}
+getPromisesAw().then(result => console.log(`${result} is here `));
+//Now this console.logs at the end because it's simple ,the function returns at the end of its statement ,so we return the result at the end of the function
+//Now this happens because the function returns a promise with the resolve value of recipe.So the recipe containes a resolved value but the function returns here the promise which is giving its resolve value to the recipe constant
 
 
