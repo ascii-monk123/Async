@@ -36,3 +36,4 @@ getWeather2(44418).then(data => {
   console.log(data);
 })
   .catch(error => console.log('Oops we seem to be having some problem'))
+//that fixes all error
