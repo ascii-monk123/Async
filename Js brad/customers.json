@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "age": "27",
+    "company": "design-tech"
+  },
+  {
+    "id": 2,
+    "name": "Mary Smith",
+    "age": "22",
+    "company": "god knows what"
+  },
+  {
+    "id": 3,
+    "name": "Aahan Singh",
+    "age": "23",
+    "company": "bruh"
+  },
+  {
+    "id": 4,
+    "name": "Slash",
+    "age": "22",
+    "company": "singer"
+  }
+]
