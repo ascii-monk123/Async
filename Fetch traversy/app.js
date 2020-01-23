@@ -23,3 +23,19 @@ const getJson = () => {
 };
 
 document.getElementById('button2').addEventListener('click', getJson);
+
+//get external api data
+const getExternal = () => {
+  fetch('https://api.github.com/users')
+    .then(response => response.json())
+    .then(data => {
+      let output = '';
+      data.forEach(user => {
+        output += `<li>${user.login}</li>`;
+      });
+      document.getElementById('output').innerHTML = output;
+    })
+    .catch(err => console.log(err));
+};
+
+document.getElementById('button3').addEventListener('click', getExternal);
